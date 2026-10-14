@@ -214,6 +214,74 @@ textarea.input{min-height:92px;resize:vertical}
 .late{color:var(--bad);font-weight:600}
 .done-art{display:grid;place-items:center;padding:24px 0 6px}
 .done-art svg{width:72px;height:72px;color:var(--brass)}
+.coach-pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--brand-ink);background:rgba(214,168,75,.18);border:1px solid rgba(214,168,75,.45);padding:6px 11px;border-radius:99px}
+.coach-pill svg{width:15px;height:15px;color:#E2B95E}
+.tip{display:grid;gap:4px;text-align:left;width:100%;background:var(--raised);border:1px solid var(--line);border-left:0;border-radius:16px;padding:14px 16px;position:relative;overflow:hidden}
+.tip::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--brass)}
+.tip-k{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--brass);font-weight:700}
+.tip b{font-family:var(--f-display);font-weight:400;font-size:18px;line-height:1.2}
+.tip-b{font-size:13px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.coach{position:fixed;left:0;right:0;bottom:calc(76px + env(safe-area-inset-bottom,0px));z-index:25;display:flex;justify-content:center;padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(12px,env(safe-area-inset-right,0px));animation:rise .28s cubic-bezier(.2,.8,.2,1)}
+.coach-in{width:100%;max-width:536px;background:var(--brand);color:var(--brand-ink);border-radius:20px;padding:14px 16px 14px;box-shadow:0 12px 40px rgba(0,0,0,.35);border:1px solid rgba(214,168,75,.35);max-height:70vh;overflow:auto}
+.coach-h{display:flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#E2B95E;font-weight:700}
+.coach-h .mark{width:22px;height:22px}
+.coach-x{margin-left:auto;background:none;border:0;color:var(--brand-muted);width:32px;height:32px;display:grid;place-items:center}
+.coach-x svg{width:20px;height:20px}
+.coach h4{margin:8px 0 4px;font-family:var(--f-display);font-weight:400;font-size:21px;line-height:1.15;text-wrap:balance}
+.coach p{margin:0;font-size:14px;line-height:1.5;color:var(--brand-ink)}
+.coach .input{color:var(--ink)}
+.coach-script{margin-top:10px;background:rgba(242,240,230,.08);border:1px solid rgba(242,240,230,.14);border-radius:12px;padding:10px 12px;font-size:14px;line-height:1.5;font-style:italic}
+.list .coach-script{background:var(--surface);border-color:var(--line);color:var(--ink);margin-bottom:10px}
+.coach-verse{margin-top:12px!important;font-family:var(--f-display);font-size:15px!important;color:#EFD9A6!important;line-height:1.45}
+.coach-verse span{display:block;font-family:var(--f-body);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-muted);margin-top:4px}
+.coach-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.coach-actions .btn.ghost{color:var(--brand-muted)}
+.play{border-top:1px solid var(--line)}
+.play:first-child{border-top:0}
+.play summary{list-style:none;cursor:pointer;padding:14px 16px;font-weight:600;display:flex;justify-content:space-between;gap:10px}
+.play summary::-webkit-details-marker{display:none}
+.play summary::after{content:"+";color:var(--brass);font-size:20px;line-height:1}
+.play[open] summary::after{content:"–"}
+.play-b{padding:0 16px 14px;font-size:14px;color:var(--ink)}
+.play-b p{margin:0 0 10px;color:var(--muted)}
+.row input[type=checkbox],.task input[type=checkbox]{width:22px;height:22px;accent-color:var(--brand);flex:none}
+.papi{margin-top:12px;border-left:3px solid #D6A84B;padding:4px 0 4px 12px}
+.papi p{font-family:var(--f-display);font-size:16px!important;line-height:1.5!important;color:#F4E7C6!important;margin:0}
+.papi>span{display:block;margin-top:6px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#E2B95E;font-weight:700}
+.papi-page{background:var(--brand);border-radius:16px;border-left:0;padding:16px 18px;margin:0 0 16px;position:relative}
+.papi-page::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:3px;background:#D6A84B;border-radius:3px}
+.papi-k{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-muted);font-weight:700;margin-bottom:8px}
+.j-mini{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:var(--muted);margin-top:4px}
+.tip .j-mini b{color:var(--ink);font-weight:500;font-family:var(--f-mono);font-size:13px;line-height:1.4}
+.j-tip::before{background:var(--brand)}
+.j-tip .tip-k{color:var(--good)}
+.meter{display:grid;gap:6px}
+.meter-h{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:var(--muted)}
+.meter-h b{font-size:18px;font-weight:500;color:var(--ink)}
+.meter-h small{font-size:12px;color:var(--muted)}
+.j-head{display:flex;gap:16px;align-items:center;margin-top:4px}
+.j-head h2{margin:2px 0 0;font-family:var(--f-display);font-weight:400;font-size:22px;line-height:1.15;text-wrap:balance}
+.j-ring{--p:0;flex:none;width:84px;height:84px;border-radius:50%;background:conic-gradient(var(--brass) calc(var(--p)*1%),var(--grey-soft) 0);display:grid;place-items:center}
+.j-ring>div{width:68px;height:68px;border-radius:50%;background:var(--bg);display:grid;place-items:center;align-content:center;line-height:1}
+.j-ring b{font-size:24px;font-weight:500}
+.j-ring span{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:3px}
+.task{align-items:flex-start}
+.task input{margin-top:2px}
+.task:has(input:checked) .name{color:var(--muted);text-decoration:line-through}
+.j-list{margin:0;padding-left:18px;display:grid;gap:4px;color:var(--ink)}
+.j-list li.done{color:var(--muted);text-decoration:line-through}
+.rv-head{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.rv-nums{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
+.rv-nums div{background:var(--raised);border:1px solid var(--line);border-radius:14px;padding:12px 10px}
+.rv-nums b{display:block;font-size:26px;font-weight:500;line-height:1.1}
+.rv-nums span{font-size:11px;color:var(--muted);line-height:1.25;display:block;margin-top:4px}
+.rv-nums small{color:var(--brass)}
+.rv-list .row{align-items:flex-start}
+.rv-dot{flex:none;width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:var(--brass-soft);color:var(--brass)}
+.rv-dot.good{background:var(--good-soft);color:var(--good)}
+.rv-dot svg{width:16px;height:16px}
+.rv-tip::before{background:var(--good)}
+.rv-tip .tip-k{color:var(--good)}
 @keyframes rise{from{transform:translateY(16px);opacity:0}to{transform:none;opacity:1}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
@@ -351,7 +419,7 @@ const TYPES={seller:'Seller',buyer:'Buyer',renter:'Renter',landlord:'Landlord',i
 const TEMPS={hot:'Hot',warm:'Warm',cold:'Cold'};
 const STAGES={talking:'Talking',evaluation:'Evaluation',mandate:'Mandate',closed:'Deal closed'};
 const NEXT={call:'Call back',wa:'Send WhatsApp',cma:'Send CMA',eval:'Book evaluation',viewing:'Arrange viewing',none:'No next step'};
-const DEFAULT_PROFILE={name:'Tshepang Moremi',title:'Candidate Property Practitioner',agency:'CH Professional Real Estate',phone:'067 789 9307',
+const DEFAULT_PROFILE={papiPhone:'076 686 0138',name:'Tshepang Moremi',title:'Candidate Property Practitioner',agency:'CH Professional Real Estate',phone:'067 789 9307',
   tplIntro:'Good day {first}, this is {agent} from {agency}. We spoke earlier about your unit at {list}. Please save my number, I will keep you updated on what is selling in the complex.',
   tplCma:'Good day {first}, this is {agent} from {agency}. As promised, I am preparing a comparative market analysis for your unit at {list}. It shows recent sales nearby and a realistic price range. When is a good time to take you through it?'};
 
@@ -482,6 +550,7 @@ function logOutcome(c,o,extra={}){
     ['type','temp','stage','nextAction','due'].forEach(f=>{if(f in extra)c[f]=extra[f]});
     if(extra.note) c.note=extra.note}
   persist(c);
+  setTimeout(()=>coachAfter(c,o,extra),450);
 }
 function undo(){if(!undoBuf)return;S.contacts[undoBuf.id]=undoBuf;persist(undoBuf);undoBuf=null;render();hideToast()}
 let toastT;
@@ -516,7 +585,7 @@ function viewToday(){
   const hr=d.getHours();const sub=hr<12?'Morning. Here is your day.':hr<17?'Afternoon. Here is what is left.':'Evening. Here is where the day ended.';
   return `
   <header class="band pad">
-    <div class="brandrow"><div class="wordmark">${MARK}<span>Mandate</span></div><span class="store-pill">${S.storage==='account'?'Synced':'On this phone'}</span></div>
+    <div class="brandrow"><div class="wordmark">${MARK}<span>Mandate</span></div><button type="button" class="coach-pill" data-act="coach">${ic('flame')}Coach</button></div>
     <div class="greet">Dumela, ${esc(first(S.profile.name)||'Agent')}<small>${esc(dateStr)} · ${sub}</small></div>
     <div class="kpis">
       <div class="kpi"><b>${calls}</b><span>Calls today</span></div>
@@ -527,6 +596,9 @@ function viewToday(){
   </header>
   <main class="pad">
     ${sampleNotice()}
+    ${reviewCard()}
+    ${journeyCard()}
+    <section class="sec"><button type="button" class="tip" data-act="coach"><span class="tip-k">Today’s coaching</span><b>${esc(tipOfDay().t)}</b><span class="tip-b">${esc(tipOfDay().body)}</span></button></section>
     ${dbCard('today')}
     <section class="sec"><div class="sec-h"><h2>Follow ups due</h2><span class="count">${follow.length}</span></div>
       ${follow.length?`<div class="list">${follow.map(c=>contactRow(c,true)).join('')}</div>`:`<div class="list"><div class="empty" style="padding:18px">Nothing promised for today. Every follow up you set will land here on its day.</div></div>`}
@@ -604,6 +676,7 @@ function viewMe(){
     <button class="btn" data-act="import">${ic('up')}Import sheet</button></div>
     <p class="hint">Import reads your complex sheets, call logs and database exports as they are.</p>
     ${lists().length?`<div class="list" style="margin-top:10px">${lists().map(l=>`<div class="row"><div class="main"><div class="name">${esc(l.name)}</div><div class="sub">${l.items.length} owners</div></div><button class="btn small ghost" data-rmlist="${esc(l.name)}">Remove</button></div>`).join('')}</div>`:''}</section>
+  <section class="sec"><div class="sec-h"><h2>Coach</h2></div><div class="btn-row"><button class="btn" data-review="${today()}">Daily review</button><button class="btn" data-act="journey">My 90 days</button><button class="btn" data-act="coach">${ic('flame')}Coach</button></div></section>
   <section class="sec"><div class="sec-h"><h2>WhatsApp messages</h2></div><button class="btn block" data-act="editTpl">${ic('wa')}Edit your two messages</button></section>
   <section class="sec"><div class="sec-h"><h2>Where your records live</h2></div>
     <p class="hint" style="margin-top:0">${S.storage==='account'?'Saved privately to your Claude account. Only you can see them, on any device where you open Mandate.':'Saved on this phone only. Export now and then to keep a copy.'} Client details are personal information under POPIA, so share exports only with your office.</p></section>
@@ -679,6 +752,9 @@ function render(){
   const app=$('#app');let h;
   if(S.screen&&S.screen.type==='dial') h=viewDial(S.screen.list);
   else if(S.screen&&S.screen.type==='contact') h=viewContact(S.screen.id);
+  else if(S.screen&&S.screen.type==='coach') h=viewCoach();
+  else if(S.screen&&S.screen.type==='journey') h=viewJourney();
+  else if(S.screen&&S.screen.type==='review') h=viewReview(S.screen.d);
   else h={today:viewToday,lists:viewLists,leads:viewLeads,me:viewMe}[S.tab]();
   const qFocus=document.activeElement&&document.activeElement.id==='q';
   app.innerHTML=h+tabbar();
@@ -717,7 +793,7 @@ function leadSheet(c,isNewTalk){
     if(extra.nextAction==='none') extra.due=null; else if(!extra.due) extra.due=addDays(1);
     if(isNewTalk){logOutcome(c,'spoke',extra);toast(`Saved. ${extra.nextAction!=='none'?NEXT[extra.nextAction]+' '+nice(extra.due).toLowerCase()+'.':''}`,true)}
     else{undoBuf=snapshot(c);Object.assign(c,{type:extra.type,temp:extra.temp,stage:extra.stage,nextAction:extra.nextAction,due:extra.due,updated:Date.now()});
-      if(extra.note!==(c.note||'')){c.note=extra.note}persist(c);toast('Lead updated',true)}
+      if(extra.note!==(c.note||'')){c.note=extra.note}persist(c);toast('Lead updated',true);setTimeout(()=>coachAfter(c,'lead',extra),450)}
     closeSheet();render()}})
 }
 function laterSheet(c){
@@ -862,9 +938,10 @@ async function copyText(t,msg){try{await navigator.clipboard.writeText(t);toast(
 
 /* ================= events ================= */
 document.addEventListener('click',e=>{
-  const el=e.target.closest('[data-tab],[data-act],[data-open],[data-dial],[data-out],[data-lf],[data-copy],[data-rmlist],[data-wa],[data-scrim]');if(!el)return;
+  const el=e.target.closest('[data-tab],[data-act],[data-open],[data-dial],[data-review],[data-out],[data-lf],[data-copy],[data-rmlist],[data-wa],[data-scrim]');if(!el)return;
   if(el.hasAttribute('data-scrim')){if(e.target===el)closeSheet();return}
   const d=el.dataset;const cur=S.screen&&S.screen.type==='contact'?S.contacts[S.screen.id]:(S.screen&&S.screen.type==='dial'?queueFor(S.screen.list)[0]:null);
+  if(d.review){S.screen={type:'review',d:d.review};render();window.scrollTo(0,0);return}
   if(d.tab){S.tab=d.tab;S.screen=null;render();window.scrollTo(0,0);return}
   if(d.open){S.prev=S.screen;S.screen={type:'contact',id:d.open};render();window.scrollTo(0,0);return}
   if(d.dial){S.screen={type:'dial',list:d.dial};S.skipped=new Set();render();window.scrollTo(0,0);return}
@@ -882,6 +959,11 @@ document.addEventListener('click',e=>{
     case 'undo': undo();break;
     case 'skip': S.skipped.add(d.id);render();break;
     case 'quick': quickSheet();break;
+    case 'coach': S.screen={type:'coach'};render();window.scrollTo(0,0);break;
+    case 'journey': S.screen={type:'journey'};render();window.scrollTo(0,0);break;
+    case 'startJourney':{const v=$('#jStart').value||today();S.profile.journey={start:v,done:{}};persistProfile();render();window.scrollTo(0,0);
+      coach({celebrate:true,title:'Your 90 days have begun',body:'Week 1: set up and choose your ground. Tick the tasks as you go. Mandate counts your calls for you.',papi:'main'});break}
+    case 'resetJourney': confirmSheet('Restart the 90 days?','Your call records stay. Only the plan and ticked tasks start again from today.','Restart',()=>{S.profile.journey={start:today(),done:{}};persistProfile();render()});break;
     case 'import': importSheet();break;
     case 'exportNew': exportDb('new');break;
     case 'exportFull': exportDb('full');break;
@@ -896,11 +978,365 @@ document.addEventListener('click',e=>{
 document.addEventListener('input',e=>{if(e.target.id==='q'){S.q=e.target.value;render()}});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSheet()});
 
+/* ================= coach ================= */
+const SCRIPTURE=[
+ ['Ecclesiastes 11:6','In the morning sow thy seed, and in the evening withhold not thine hand: for thou knowest not whether shall prosper, either this or that.'],
+ ['Galatians 6:9','And let us not be weary in well doing: for in due season we shall reap, if we faint not.'],
+ ['Proverbs 16:3','Commit thy works unto the LORD, and thy thoughts shall be established.'],
+ ['Colossians 3:23','And whatsoever ye do, do it heartily, as to the Lord, and not unto men.'],
+ ['Joshua 1:9','Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.'],
+ ['Proverbs 22:29','Seest thou a man diligent in his business? he shall stand before kings.']
+];
+const PAPI_MAIN='Nduna, do not let go. There will be days when the phone is quiet and every door feels shut. That is not the end of the road. That is the place where we sit down and find another way. When there is nothing, we make something. I am proud of you for showing up every day. Keep pushing.';
+const PAPI={
+ rude:['Son, how they spoke to you says more about their day than about you. Hold your head up. You are a gentleman, and gentlemen do not shrink.',
+   'Hard days build strong men. One rude voice does not get to decide how the rest of your day goes.',
+   'Even our Lord was rejected in His own town, and He kept walking. Shake the dust off and dial the next number.'],
+ no:['Son, a no is not a verdict on you. It is only not today. Smile, breathe, and dial the next number.',
+   'You were not raised to quit. When the way is closed, we do not sit and cry. We look for the next door.',
+   'Every yes you will ever get is hiding behind a few no answers. Keep knocking, Nduna.'],
+ miss:['Every harvest started with seed that looked like it was doing nothing in the ground. Keep sowing. Your season is coming.',
+   'The people are at work, Nduna. That is not rejection, that is timing. Come back to them in the evening.',
+   'Patience is also work. The ones who did not answer today will pick up another day.'],
+ dry:['When there is nothing, we come up with something. Call me if you need to talk it through. Then go again.',
+   'Remember who you are and whose you are. The One who opened doors for me will open them for you.',
+   'Dry seasons come to every farmer. The wise one keeps the field ready for the rain. Keep your field ready.'],
+ quiet:['A slow morning is not a lost day. The evening is still yours. Use it well.',
+   'Some days are paperwork and viewings, and that is part of the work. Just do not let the day end without a few calls.'],
+ overdue:['Finish what you start, Nduna. People remember the man who came back to them.',
+   'A late follow up is still a kept promise. Go and keep your word.'],
+ monday:['A new week, Nduna. Last week is done, good or bad. Go and get this one.',
+   'Start the week like you mean it. Set one goal for this week and do not go to sleep on Friday without reaching it.'],
+ first:['There it is. One open door is all you need. Walk through it.','You see? Somebody was waiting for your call.'],
+ hot:['Move, Nduna. Opportunity does not wait for the comfortable.','Strike while it is warm. Do not sleep on this one.']
+};
+PAPI.proud=['That is my son. I am proud of you.','You see? Faithful in the small things. Keep going, Nduna.','This is what pushing looks like. Well done, my boy.','I told you. When we do not let go, God makes a way.'];
+function papiFor(key){const a=PAPI[key]||PAPI.no;const st=coachState();st.papiLast=st.papiLast||{};
+  let i=Math.floor(Math.random()*a.length);if(a.length>1&&i===st.papiLast[key])i=(i+1)%a.length;st.papiLast[key]=i;return a[i]}
+const pickOne=a=>a[Math.floor(Math.random()*a.length)];
+const PLAYBOOK=[
+ {k:'open',t:'Open with value, not a question about selling',body:'Owners hear "Do you want to sell?" and close the door. Lead with something useful to them instead.',
+  script:'Good evening {first}, it is {agent} from {agency}. I am the agent who focuses on {list}. A unit in your complex sold recently and I am letting owners know what their units are worth now. Can I WhatsApp you a free value report for yours?'},
+ {k:'notselling',t:'When they say "I am not selling"',body:'Agree, then keep the door open. Most owners sell within a few years, and they remember who was helpful.',
+  script:'No problem at all, I am not asking you to sell. Can I still send you what units in {list} are going for, so you know where you stand when the time comes?'},
+ {k:'sole',t:'"We have a sole mandate with another agent"',body:'Respect it and never undermine the other agent. Ask when it ends and set your follow up for that week. Mandates expire, and the agent who calls that week often gets the next one.',
+  script:'That is good to hear, I hope it sells quickly for you. Just so I do not bother you while it runs, roughly when does the mandate end?'},
+ {k:'landlord',t:'"I am renting it out"',body:'That owner is a landlord. CH offers property management, so offer to look after the rental. Landlords also sell one day.',
+  script:'That makes sense. Are you managing the tenant yourself? We manage rentals in {list}, so if it ever becomes a headache I can take it off your hands. And if you ever think of selling to an investor, I can tell you what it would fetch with the tenant in place.'},
+ {k:'voicemail',t:'Voicemail and no answer',body:'Most owners are at work during the day. Your best answer rate is 17:30 to 19:00 on weekdays and Saturday mornings. After two missed calls, send a short WhatsApp. It often gets the reply the phone did not.',
+  script:'Good day {first}, this is {agent} from {agency}. I tried to call about your unit at {list}. I have some recent sale prices from the complex that you might find interesting. When is a good time to chat for two minutes?'},
+ {k:'referral',t:'They already sold or bought elsewhere',body:'Do not close the file without one question. Referrals come from exactly these calls.',
+  script:'Congratulations! Before I let you go, do you know anyone in {list} who is thinking of selling or renting out?'},
+ {k:'happy',t:'Keeping clients happy',body:'Reply within the hour, even if it is only "Got it, I will have an answer by tomorrow." Sellers hear from you every week, even with no news, because silence is the main reason sellers move to another agent. After the deal: a small gift on moving day, a message on the first anniversary, then ask for a referral and a Google review.'},
+ {k:'buyers',t:'Buyers',body:'Get buyers pre-qualified early by connecting them with a bond originator before viewings. It saves everyone wasted Saturdays and shows the seller you bring serious buyers.'},
+ {k:'rhythm',t:'Your daily rhythm',body:'Morning: follow ups from the Today screen, then viewings and valuations. Evening 17:30 to 19:00: one complex, unit by unit. Friday: send your weekly report to your principal. Forty calls a day gives about ten conversations, and a handful of real leads each week. The numbers do the work if you do the calls.'},
+ {k:'mentor',t:'Use your mentor',body:'As a candidate practitioner you are meant to work under a mentor. Ask your principal for a fixed half hour each week. Bring your weekly report from Mandate and your three hardest leads. Mentors invest in people who come prepared.'}
+];
+function fillScript(s,c){const p=S.profile;return (s||'').replace(/\{first\}/g,c?first(c.name):'Mr Mokoena').replace(/\{agent\}/g,first(p.name)||p.name).replace(/\{agency\}/g,p.agency).replace(/\{list\}/g,c?c.list:'your complex')}
+function coachState(){S.profile.coach=S.profile.coach||{seen:{},lastAt:0};return S.profile.coach}
+function seenToday(key){return coachState().seen[key]===today()}
+function markSeen(key){coachState().seen[key]=today();coachState().lastAt=Date.now();persistProfile()}
+function verse(){if(S.profile.faithOn===false)return null;return SCRIPTURE[Math.floor(Math.random()*SCRIPTURE.length)]}
+function todaysCalls(){const t=today();return all().flatMap(c=>(c.log||[]).filter(l=>OUT[l.o]&&OUT[l.o].kind&&iso(new Date(l.at))===t).map(l=>({...l,c}))).sort((a,b)=>a.at-b.at)}
+function tailStreak(calls,set){let n=0;for(let i=calls.length-1;i>=0;i--){if(set.includes(calls[i].o))n++;else break}return n}
+
+/* show one coaching card */
+let coachOpen=false;
+function coach(m){
+  if(S.profile.coachOn===false) return;
+  if(coachOpen) return;
+  if(!m.celebrate && Date.now()-(coachState().lastAt||0)<3*60e3) return;
+  if(m.key) markSeen(m.key); else {coachState().lastAt=Date.now()}
+  const papi=S.profile.papiOn===false?null:(m.papi==='main'?PAPI_MAIN:m.papi?papiFor(m.papi):null);
+  const v=(m.verse||(!papi&&['rude','no','dry','miss','monday'].includes(m.papi)))?verse():null;
+  const el=document.createElement('div');el.className='coach';el.setAttribute('role','dialog');el.setAttribute('aria-label','Coach');
+  el.innerHTML=`<div class="coach-in"><div class="coach-h">${MARK}<span>Coach</span><button type="button" class="coach-x" aria-label="Close">${ic('plus','style="transform:rotate(45deg)"')}</button></div>
+    <h4>${esc(m.title)}</h4><p>${esc(m.body)}</p>
+    ${m.script?`<div class="coach-script">${esc(m.script)}</div>`:''}
+    ${m.extra||''}
+    ${papi?`<div class="papi"><p>${esc(papi)}</p><span>Papi</span></div>`:''}
+    ${v?`<p class="coach-verse">“${esc(v[1])}”<span>${esc(v[0])}</span></p>`:''}
+    <div class="coach-actions">${(m.actions||[]).map((a,i)=>`<button type="button" class="btn small ${i===0?'gold':''}" data-ca="${i}">${esc(a.label)}</button>`).join('')}<button type="button" class="btn small ghost" data-ca="x">${m.actions&&m.actions.length?'Not now':'Thank you'}</button></div></div>`;
+  document.body.appendChild(el);coachOpen=true;
+  const close=()=>{el.remove();coachOpen=false};
+  el.addEventListener('click',e=>{const b=e.target.closest('[data-ca],.coach-x');if(!b)return;
+    if(b.classList.contains('coach-x')||b.dataset.ca==='x'){close();return}
+    const a=m.actions[+b.dataset.ca];if(a&&a.run){if(a.run(el)!==false)close()}});
+}
+
+/* after every logged call or lead change */
+function coachAfter(c,o,extra){
+  extra=extra||{};const calls=todaysCalls();const n=calls.length;const hr=new Date().getHours();
+  const note=((extra.note||'')+' '+((c.log||[]).slice(-1)[0]||{}).n).toLowerCase();
+  // celebrations first
+  if(extra.stage==='mandate'&&!seenToday('mandate-'+c.id)) return coach({key:'mandate-'+c.id,celebrate:true,papi:'proud',title:`A signed mandate. Well done, ${first(S.profile.name)}!`,
+    body:`${c.name} trusted you with their home. Keep that trust: send them an update every week, even when there is no news. Silence is what makes sellers leave.`});
+  if(o==='spoke'&&extra.temp==='hot'&&!seenToday('hot-'+c.id)) return coach({key:'hot-'+c.id,celebrate:true,papi:'hot',title:'Hot lead. Move while it is warm.',
+    body:`Send the CMA or book the valuation for ${first(c.name)} within 24 hours. Speed is what clients remember, and it is how a young agent beats the established ones.`,
+    actions:c.phone?[{label:'Send CMA message',run:()=>{window.open(waLink(c,S.profile.tplCma),'_blank','noopener')}}]:[]});
+  // situations in the note
+  if(/sole mandate|sole agent|another agent|with an agent|on the market/.test(note)&&!seenToday('sole-'+c.id)) return coach({key:'sole-'+c.id,title:'They have a mandate with another agent',
+    body:'Respect it. But mandates expire, and the agent who calls that week often gets the next one. When does theirs end? I will put a follow up on that date.',
+    extra:`<input class="input" type="date" id="soleEnd" aria-label="Mandate end date" style="margin-top:10px">`,
+    actions:[{label:'Set follow up',run:el=>{const d=el.querySelector('#soleEnd').value;if(!d){el.querySelector('#soleEnd').focus();return false}
+      c.status='reached';c.type=c.type||'seller';c.temp=c.temp||'warm';c.stage=c.stage||'talking';c.nextAction='call';c.due=d;c.updated=Date.now();persist(c);render();toast('Follow up set for '+nice(d))}}]});
+  if(/renting out|rented out|rent it out|tenant|rental/.test(note)&&!/looking to rent|wants? (a place )?to rent/.test(note)&&!seenToday('land-'+c.id)) return coach({key:'land-'+c.id,title:'This owner is a landlord',
+    body:'CH offers property management, so this is a lead, not a no. Offer to look after the rental, and ask what they would do if an investor made an offer with the tenant in place.',
+    script:fillScript(PLAYBOOK[3].script,c),actions:[{label:'Mark as landlord lead',run:()=>{c.status='reached';c.type='landlord';c.temp=c.temp||'warm';c.stage=c.stage||'talking';c.nextAction=c.nextAction&&c.nextAction!=='none'?c.nextAction:'call';c.due=c.due||addDays(7);c.updated=Date.now();persist(c);render();toast('Saved as a landlord lead')}}]});
+  if(/rude|shout|swore|insult|angry|hung up|hanged up|aggressive|swear/.test(note)&&!seenToday('rude')) return coach({key:'rude',papi:'rude',title:'That one stung',
+    body:'It was not about you. You caught someone on a bad day. Every agent who ever built a business took calls like that. Stand up, drink some water, and dial the next number. The next person deserves the best version of you.'});
+  if(/already sold|she sold|he sold|bought a house|bought elsewhere|moved/.test(note)&&!seenToday('ref-'+c.id)) return coach({key:'ref-'+c.id,title:'Before you close this one',
+    body:'They may not need you, but they know their neighbours. One question turns a closed file into a referral.',script:fillScript(PLAYBOOK[5].script,c)});
+  // streaks
+  const miss=tailStreak(calls,['noanswer','voicemail']);
+  if(miss>=5&&!seenToday('miss')) return coach({key:'miss',papi:'miss',title:`${miss} calls with no answer`,
+    body:hr<17?'That is not you, it is the time of day. Owners are at work. Your best answer rate is 17:30 to 19:00. Keep going if you have energy, or move to follow ups now and come back to this list this evening.':
+      'Evenings are when owners answer, so keep going. After two missed calls, a short WhatsApp often gets the reply the phone did not.',
+    actions:hr<17?[{label:'Go to my follow ups',run:()=>{S.screen=null;S.tab='today';render();window.scrollTo(0,0)}}]:[]});
+  const no=tailStreak(calls,['notint']);
+  if(no>=3&&!seenToday('no')) return coach({key:'no',papi:'no',title:'Three no’s in a row',
+    body:'Every no is one owner closer to a yes, and a no today is often a yes in two years. Try leading with something useful instead of asking about selling:',
+    script:fillScript(PLAYBOOK[0].script,c)});
+  if(o==='spoke'&&calls.filter(l=>l.o==='spoke').length===1&&!seenToday('first')) return coach({key:'first',celebrate:true,papi:'first',title:'First conversation of the day',
+    body:'That is how every deal starts: one real conversation. Keep the rhythm going while you are warm.'});
+  for(const m of [10,25,40]) if(n===m&&!seenToday('n'+m)) return coach({key:'n'+m,celebrate:true,papi:m===40?'proud':false,title:m===40?'Forty calls. That is a professional’s day.':`${m} calls today`,
+    body:m===10?'Ten calls in. The first ten are always the hardest. Keep going.':m===25?'Twenty five calls. Most agents stop long before this. This is where you pull ahead.':'This is the number that builds a business. Rest well tonight, you earned it.'});
+  coachReview();
+}
+
+/* when the app opens */
+function coachOnOpen(){
+  if(S.profile.coachOn===false) return;
+  if(!coachState().welcomed&&S.profile.papiOn!==false){coachState().welcomed=today();persistProfile();
+    return coach({celebrate:true,title:'A word from your father',body:'Before you start, read this.',papi:'main',actions:[{label:'Amen, let’s go',run:()=>{}}]})}
+  if(coachJourney()) return;
+  if(coachReview()) return;
+  if(!all().length) return;
+  const real=all().filter(c=>!c.sample);if(!real.length) return;
+  const d=new Date(),hr=d.getHours(),wd=d.getDay();const t=today();
+  const overdue=real.filter(c=>isDue(c)&&c.status==='reached'&&c.due<t);
+  if(overdue.length>=3&&!seenToday('overdue')) return coach({key:'overdue',papi:'overdue',title:`${overdue.length} follow ups are waiting`,
+    body:'Start with the hot ones, one call or WhatsApp each. A late follow up is still far better than none, and clients notice who comes back to them.',
+    actions:[{label:'Show me',run:()=>{S.screen=null;S.tab='today';render();window.scrollTo(0,0)}}]});
+  if(wd===1&&hr<12&&!seenToday('monday')){const ws=addDays(-7,startOfWeek());const we=startOfWeek();
+    const L=real.flatMap(c=>(c.log||[]).filter(l=>OUT[l.o]&&OUT[l.o].kind&&iso(new Date(l.at))>=ws&&iso(new Date(l.at))<we));
+    return coach({key:'monday',papi:'monday',title:'A new week',body:L.length?`Last week you made ${L.length} calls and had ${L.filter(l=>l.o==='spoke').length} conversations. Pick one complex for this week and aim to reach every owner in it.`:'Pick one complex for this week and aim to reach every owner in it. Start with ten calls this evening.'})}
+  const callsToday=todaysCalls().length;
+  if(wd>=1&&wd<=5&&hr>=14&&hr<17&&callsToday===0&&!seenToday('quiet')) return coach({key:'quiet',papi:'quiet',title:'A quiet day so far',
+    body:'Some days are full of viewings and paperwork, and that is fine. Block 17:30 to 19:00 tonight for calls. That is when owners answer.'});
+  const last3=[1,2,3].map(k=>addDays(-k));const talks=real.flatMap(c=>(c.log||[]).filter(l=>l.o==='spoke'&&last3.includes(iso(new Date(l.at))))).length;
+  const callsRecent=real.flatMap(c=>(c.log||[]).filter(l=>OUT[l.o]&&OUT[l.o].kind&&last3.includes(iso(new Date(l.at))))).length;
+  if(callsRecent>=20&&talks===0&&!seenToday('dry')) return coach({key:'dry',papi:'dry',title:'A dry spell',
+    body:`${callsRecent} calls in three days and no conversation yet. Dry spells come to every agent. Change one thing today: call later in the evening, or open with the value report line. Keep sowing.`,
+    script:fillScript(PLAYBOOK[0].script,null)});
+}
+
+/* Coach page */
+function tipOfDay(){const i=Math.floor(Date.now()/864e5)%PLAYBOOK.length;return PLAYBOOK[i]}
+function viewCoach(){
+  return `<div class="topbar pad"><button class="iconbtn" data-act="back" aria-label="Back">${ic('back')}</button><div class="t"><b>Coach</b><span>Scripts and habits that win mandates</span></div></div>
+  <main class="pad">
+    ${S.profile.papiOn===false?'':`<div class="papi papi-page"><span class="papi-k">A word from your father</span><p>${esc(PAPI_MAIN)}</p><span>Papi</span></div>`}
+    <button class="btn block" data-act="journey" style="margin-bottom:6px">${ic('flame')}My 90 day plan</button>
+    <p class="hint">Tap a topic to open it. Scripts fill in your name and agency. Read them aloud a few times until they sound like you, then make them your own.</p>
+    <div class="list">${PLAYBOOK.map(p=>`<details class="play"><summary>${esc(p.t)}</summary><div class="play-b"><p>${esc(p.body)}</p>
+      ${p.script?`<div class="coach-script">${esc(fillScript(p.script,null))}</div><button class="btn small" data-copy="${esc(fillScript(p.script,null))}">${ic('copy')}Copy</button>`:''}</div></details>`).join('')}</div>
+    <section class="sec"><div class="sec-h"><h2>Coach settings</h2></div><div class="list">
+      <label class="row"><div class="main"><div class="name">Coaching pop ups</div><div class="sub">Short encouragement and guidance as you work</div></div><input type="checkbox" id="coachOn" ${S.profile.coachOn===false?'':'checked'}></label>
+      <label class="row"><div class="main"><div class="name">Words from Papi</div><div class="sub">Your father’s encouragement on hard days and big wins</div></div><input type="checkbox" id="papiOn" ${S.profile.papiOn===false?'':'checked'}></label>
+      <div class="row"><div class="main"><label class="name" for="papiPhone">Papi’s WhatsApp number</label><div class="sub">For sending your daily review in one tap</div>
+        <input class="input mono" id="papiPhone" inputmode="tel" style="margin-top:8px" value="${esc(S.profile.papiPhone||'')}" placeholder="082 000 0000"></div></div>
+      <label class="row"><div class="main"><div class="name">Scripture now and then</div><div class="sub">A short verse on harder days</div></div><input type="checkbox" id="faithOn" ${S.profile.faithOn===false?'':'checked'}></label>
+    </div></section>
+  </main>`;
+}
+document.addEventListener('change',e=>{if(e.target.id==='coachOn'){S.profile.coachOn=e.target.checked;persistProfile();toast(e.target.checked?'Coaching on':'Coaching off')}
+  if(e.target.id==='papiPhone'){S.profile.papiPhone=fmtPhone(e.target.value);persistProfile();toast('Saved')}
+  if(e.target.id==='papiOn'){S.profile.papiOn=e.target.checked;persistProfile();render()}
+  if(e.target.id==='faithOn'){S.profile.faithOn=e.target.checked;persistProfile()}});
+
+/* ================= 90 days ================= */
+const PHASES=[
+ {n:'Foundation',sub:'Own your patch',weeks:[1,4],papi:'The first month is about habits, not results, Nduna. Show up every day and the results will come looking for you.'},
+ {n:'Momentum',sub:'Turn conversations into appointments',weeks:[5,8],papi:'Now you know the ground. Use it. Every conversation should end with a next step and a date.'},
+ {n:'Reputation',sub:'Become the name in your complexes',weeks:[9,13],papi:'People do business with the man they trust. Let them see you are steady, honest and always there.'}
+];
+const WEEKS=[
+ {f:'Set up and choose your ground',calls:100,talks:15,tasks:['Import every call sheet into Mandate','Choose two focus complexes and tell your principal','Read the opening script aloud ten times until it sounds like you','Book a fixed weekly half hour with your mentor','Call every number marked wrong and clean them out']},
+ {f:'Evenings are your golden hour',calls:150,talks:25,tasks:['Call from 17:30 to 19:00 on four evenings','Send at least five value reports (CMAs)','After two missed calls, send a WhatsApp','Clear every overdue follow up by Friday']},
+ {f:'Know your complexes better than anyone',calls:175,talks:30,tasks:['List every sale and rental in your two complexes this year, with prices','Record the end date of every sole mandate you hear about','Save every landlord as a lead and offer rental management','Send your Friday report to your principal']},
+ {f:'First month review',calls:200,talks:35,tasks:['Sit with your mentor and go through your weekly reports','Write down your three best opening lines that worked','Ask three people you have helped for a referral','Tell Papi how the month went']},
+ {f:'Book evaluations',calls:200,talks:35,tasks:['Book at least two evaluations','Do every evaluation with a printed CMA in hand','Follow up every evaluation within 24 hours']},
+ {f:'Buyers who are ready',calls:200,talks:35,tasks:['Partner with a bond originator you trust','Get every serious buyer pre-qualified before viewings','End the week with zero overdue follow ups']},
+ {f:'Stay in front of owners',calls:200,talks:40,tasks:['Ask owners who were friendly if you may send market updates (POPIA consent)','Send your first short market update to those who said yes','Call back every warm lead from weeks 1 to 6']},
+ {f:'Aim for your first mandate',calls:200,talks:40,tasks:['Ask for the mandate at every evaluation','Review your hot leads with your mentor','Ask one happy client for a Google review']},
+ {f:'Widen the field',calls:200,talks:40,tasks:['Add a third complex and import its owners','Post one listing or sale on your WhatsApp status every week','Introduce yourself to the body corporate or managing agent of your complexes']},
+ {f:'Look after your sellers',calls:200,talks:40,tasks:['Send every seller an update every week, even with no news','Send feedback to sellers within a day of each viewing','Plan a small thank you for each client who signs']},
+ {f:'Referrals',calls:200,talks:40,tasks:['Call every past client and contact who said "not now" in weeks 1 to 4','Ask each one: do you know anyone thinking of selling or renting?','Thank every referral, whether it turns into a deal or not']},
+ {f:'Push for two mandates',calls:220,talks:45,tasks:['Revisit every evaluation that did not sign','Check sole mandates that are expiring this month','Ask your mentor what you should stop doing']},
+ {f:'Ninety day review',calls:200,talks:40,tasks:['Compare your first week with this week in Mandate','Sit with your mentor and with Papi and share what you learned','Set your goals for the next 90 days']}
+];
+function journey(){return S.profile.journey||null}
+function jWeek(){const j=journey();if(!j)return 0;return Math.min(13,Math.max(1,Math.floor(dayDiff(today(),j.start)/7)+1))}
+function jDay(){const j=journey();return j?Math.min(90,Math.max(1,dayDiff(today(),j.start)+1)):0}
+function weekRange(w){const j=journey();const s=addDays((w-1)*7,j.start);return [s,addDays(7,s)]}
+function weekStats(w){const [a,b]=weekRange(w);const L=all().filter(c=>!c.sample).flatMap(c=>(c.log||[]).filter(l=>OUT[l.o]&&OUT[l.o].kind).map(l=>iso(new Date(l.at)))).filter(d=>d>=a&&d<b);
+  const T=all().filter(c=>!c.sample).flatMap(c=>(c.log||[]).filter(l=>l.o==='spoke').map(l=>iso(new Date(l.at)))).filter(d=>d>=a&&d<b);
+  return {calls:L.length,talks:T.length}}
+function phaseOf(w){return PHASES.find(p=>w>=p.weeks[0]&&w<=p.weeks[1])}
+function tasksDone(w){const d=(journey().done||{});return WEEKS[w-1].tasks.filter((_,i)=>d[w+'-'+i]).length}
+function meter(v,t,label){const pct=Math.min(100,Math.round(v/t*100));return `<div class="meter"><div class="meter-h"><span>${label}</span><b class="mono">${v}<small> / ${t}</small></b></div><div class="bar"><i style="width:${pct}%;background:${pct>=100?'var(--good)':'var(--brass)'}"></i></div></div>`}
+function journeyCard(){
+  const j=journey();
+  if(!j) return `<section class="sec"><button type="button" class="tip j-tip" data-act="journey"><span class="tip-k">90 days with Mandate</span><b>Start your 90 day plan</b><span class="tip-b">Thirteen weeks, three phases, one goal: your first mandates and a name in your complexes.</span></button></section>`;
+  const w=jWeek(),st=weekStats(w),W=WEEKS[w-1],ph=phaseOf(w);
+  return `<section class="sec"><button type="button" class="tip j-tip" data-act="journey"><span class="tip-k">Day ${jDay()} of 90 · Week ${w} · ${esc(ph.n)}</span><b>${esc(W.f)}</b>
+    <span class="j-mini"><span>Calls <b class="mono">${st.calls}/${W.calls}</b></span><span>Conversations <b class="mono">${st.talks}/${W.talks}</b></span><span>Tasks <b class="mono">${tasksDone(w)}/${W.tasks.length}</b></span></span></button></section>`;
+}
+function viewJourney(){
+  const j=journey();
+  const top=`<div class="topbar pad"><button class="iconbtn" data-act="back" aria-label="Back">${ic('back')}</button><div class="t"><b>90 Days</b><span>${j?'Day '+jDay()+' of 90':'Your plan for the next three months'}</span></div></div>`;
+  if(!j) return `${top}<main class="pad">
+    <div class="papi papi-page"><span class="papi-k">A word from your father</span><p>${esc(PAPI_MAIN)}</p><span>Papi</span></div>
+    <div class="card" style="box-shadow:none"><h2 style="margin:0;font-family:var(--f-display);font-weight:400;font-size:24px">Thirteen weeks to a name of your own</h2>
+    <p class="hint" style="font-size:14px">${PHASES.map((p,i)=>`<b>Weeks ${p.weeks[0]} to ${p.weeks[1]}: ${esc(p.n)}.</b> ${esc(p.sub)}.`).join('<br>')}</p>
+    <p class="hint">Each week has a focus, a few tasks to tick, and call targets that Mandate counts for you from what you log. Nothing extra to fill in.</p>
+    <div class="field"><label for="jStart">Start date</label><input class="input" type="date" id="jStart" value="${today()}"></div>
+    <button class="btn primary block" style="margin-top:14px" data-act="startJourney">Start my 90 days</button></div></main>`;
+  const w=jWeek(),ph=phaseOf(w),W=WEEKS[w-1],st=weekStats(w);const d=j.done||{};
+  const day=jDay();
+  return `${top}<main class="pad">
+    <div class="j-head"><div class="j-ring" style="--p:${Math.round(day/90*100)}"><div><b class="mono">${day}</b><span>of 90</span></div></div>
+      <div style="min-width:0"><span class="tip-k">Phase ${PHASES.indexOf(ph)+1} · ${esc(ph.n)}</span><h2>${esc(ph.sub)}</h2></div></div>
+    <div class="papi papi-page" style="margin-top:14px"><p>${esc(ph.papi)}</p><span>Papi</span></div>
+    <section class="sec"><div class="sec-h"><h2>Week ${w} · ${esc(W.f)}</h2><span class="count">${esc(nice(weekRange(w)[0]))} to ${esc(nice(addDays(-1,weekRange(w)[1])))}</span></div>
+      <div class="card" style="box-shadow:none;display:grid;gap:12px">${meter(st.calls,W.calls,'Calls')}${meter(st.talks,W.talks,'Conversations')}</div>
+      <div class="list" style="margin-top:10px">${W.tasks.map((t,i)=>`<label class="row task"><input type="checkbox" data-task="${w}-${i}" ${d[w+'-'+i]?'checked':''}><div class="main"><div class="name" style="white-space:normal">${esc(t)}</div></div></label>`).join('')}</div>
+    </section>
+    <section class="sec"><div class="sec-h"><h2>All thirteen weeks</h2></div><div class="list">${WEEKS.map((x,i)=>{const n=i+1;const s=n<=w?weekStats(n):null;const hit=s&&s.calls>=x.calls;
+      return `<details class="play"${n===w?' open':''}><summary><span><span class="mono" style="color:var(--muted);margin-right:8px">W${n}</span>${esc(x.f)}</span>${n<w?`<span class="chip ${hit?'good':''}">${hit?'Target met':s.calls+' calls'}</span>`:n===w?'<span class="chip brass">This week</span>':''}</summary>
+      <div class="play-b"><p>Targets: ${x.calls} calls, ${x.talks} conversations. Tasks done: ${tasksDone(n)} of ${x.tasks.length}.</p><ul class="j-list">${x.tasks.map((t,k)=>`<li class="${d[n+'-'+k]?'done':''}">${esc(t)}</li>`).join('')}</ul></div></details>`}).join('')}</div></section>
+    <section class="sec"><button class="btn small ghost" data-act="resetJourney">Restart the 90 days</button></section>
+  </main>`;
+}
+document.addEventListener('change',e=>{const k=e.target.dataset&&e.target.dataset.task;if(!k)return;const j=journey();if(!j)return;j.done=j.done||{};
+  if(e.target.checked)j.done[k]=true;else delete j.done[k];persistProfile();
+  const w=+k.split('-')[0];if(e.target.checked&&tasksDone(w)===WEEKS[w-1].tasks.length) coach({celebrate:true,title:`Week ${w} tasks complete`,body:'Every task done. That is how a reputation is built, one finished week at a time.',papi:'proud'});
+  setTimeout(render,250)});
+function coachJourney(){
+  const j=journey();if(!j||S.profile.coachOn===false) return false;const d=new Date();const w=jWeek();
+  if(d.getDay()===5&&d.getHours()>=12&&!seenToday('jfri')){const st=weekStats(w),W=WEEKS[w-1];const left=Math.max(0,W.calls-st.calls);
+    coach({key:'jfri',papi:left?'monday':'proud',title:left?`Week ${w}: ${left} calls to go`:`Week ${w} target reached`,
+      body:left?`You are on ${st.calls} of ${W.calls} calls and ${st.talks} conversations. There is still Friday evening and Saturday morning. Finish the week strong.`:`${st.calls} calls and ${st.talks} conversations this week. Send your report to your principal and rest well.`,
+      actions:[{label:'Open my 90 days',run:()=>{S.screen={type:'journey'};render();window.scrollTo(0,0)}}]});return true}
+  const ph=phaseOf(w);if(w===ph.weeks[0]&&!coachState()['phase'+w]){coachState()['phase'+w]=today();persistProfile();
+    coach({celebrate:true,title:`Phase ${PHASES.indexOf(ph)+1}: ${ph.n}`,body:ph.sub+'. Here is what your father wants you to hold on to:',extra:`<div class="papi"><p>${esc(ph.papi)}</p><span>Papi</span></div>`,
+      actions:[{label:'See this week',run:()=>{S.screen={type:'journey'};render();window.scrollTo(0,0)}}]});return true}
+  return false;
+}
+
+/* ================= daily review ================= */
+function reviewPool(){const r=all().filter(c=>!c.sample);return r.length?r:all()}
+function dailyTarget(){const j=journey();if(j){const w=jWeek();return Math.round(WEEKS[w-1].calls/5)}return 40}
+function dayStats(d){
+  const cs=reviewPool();const L=[];
+  for(const c of cs) for(const l of (c.log||[])) if(iso(new Date(l.at))===d) L.push({...l,c});
+  const calls=L.filter(l=>OUT[l.o]&&OUT[l.o].kind);const talks=calls.filter(l=>l.o==='spoke');
+  const cnt=k=>calls.filter(l=>l.o===k).length;
+  const firstTalk=c=>{const s=(c.log||[]).find(l=>l.o==='spoke');return s&&iso(new Date(s.at))===d};
+  const talked=[...new Map(talks.map(l=>[l.c.id,l.c])).values()];
+  const newLeads=talked.filter(firstTalk);const followed=talked.filter(c=>!firstTalk(c));
+  const hot=talked.filter(c=>c.temp==='hot');
+  const noNext=talked.filter(c=>c.status==='reached'&&(!c.nextAction||c.nextAction==='none')&&c.stage!=='closed');
+  const evening=calls.filter(l=>new Date(l.at).getHours()>=17).length;
+  const eveTalks=talks.filter(l=>new Date(l.at).getHours()>=17).length;
+  const wa=L.filter(l=>l.o==='wa').length;
+  const overdue=d===today()?cs.filter(c=>isDue(c)&&c.status==='reached').length:0;
+  const twoMiss=d===today()?cs.filter(c=>c.status==='retry'&&(c.attempts||0)>=2&&!(c.log||[]).some(l=>l.o==='wa')).length:0;
+  const mandates=talked.filter(c=>c.stage==='mandate').length;const evals=talked.filter(c=>c.stage==='evaluation'||c.nextAction==='eval').length;
+  return {d,calls:calls.length,talks:talks.length,miss:cnt('noanswer')+cnt('voicemail'),notint:cnt('notint'),wrong:cnt('wrong'),
+    newLeads,followed,hot,noNext,evening,eveTalks,wa,overdue,twoMiss,mandates,evals,target:dailyTarget()};
+}
+function rateDay(s){const r=s.calls/s.target;
+  if(s.mandates||(r>=1&&s.talks>=Math.max(3,s.target/5))||(s.hot.length&&r>=.6)) return {k:'strong',l:'Strong day',cls:'good'};
+  if(r>=.6||s.talks>=5) return {k:'solid',l:'Solid day',cls:'brass'};
+  if(s.calls>0) return {k:'building',l:'Building day',cls:'warm'};
+  return {k:'rest',l:'No calls logged',cls:''};
+}
+function reviewWins(s){const w=[];
+  if(s.mandates) w.push(`You moved ${s.mandates===1?'a client':s.mandates+' clients'} to mandate. That is the whole game.`);
+  if(s.hot.length) w.push(`${s.hot.length} hot lead${s.hot.length>1?'s':''}: ${s.hot.slice(0,3).map(c=>first(c.name)).join(', ')}. Real opportunity.`);
+  if(s.calls>=s.target) w.push(`${s.calls} calls against a target of ${s.target}. You did the work.`);
+  else if(s.calls>=s.target*.6) w.push(`${s.calls} calls. Solid effort, most of the way to ${s.target}.`);
+  if(s.calls>=8&&s.talks/s.calls>=.25) w.push(`You reached ${Math.round(s.talks/s.calls*100)}% of the people you called. That is a good answer rate.`);
+  if(s.evening>=5) w.push(`${s.evening} calls in the evening${s.eveTalks?`, with ${s.eveTalks} conversation${s.eveTalks>1?'s':''}`:''}. You are calling when owners answer.`);
+  if(s.followed.length) w.push(`You followed up with ${s.followed.length} ${s.followed.length>1?'people':'person'} you had spoken to before. That is how trust is built.`);
+  if(s.newLeads.length&&!s.hot.length) w.push(`${s.newLeads.length} new lead${s.newLeads.length>1?'s':''} added to your pipeline.`);
+  if(s.wrong>=3) w.push(`You cleaned out ${s.wrong} wrong numbers. Your lists are getting sharper.`);
+  if(!w.length&&s.calls) w.push(`You showed up and made ${s.calls} call${s.calls>1?'s':''}. Every day you show up counts.`);
+  return w.slice(0,3);
+}
+function reviewTomorrow(s){
+  if(!s.calls) return 'Make ten calls before lunch tomorrow, then ten more from 17:30. Starting is the hardest part.';
+  if(s.overdue) return `Start tomorrow with your ${s.overdue} overdue follow up${s.overdue>1?'s':''}, before any new calls. People remember who came back to them.`;
+  if(s.noNext.length) return `${s.noNext.slice(0,2).map(c=>first(c.name)).join(' and ')} ${s.noNext.length>1?'have':'has'} no next step. Every conversation should end with a next step and a date. Set ${s.noNext.length>1?'them':'it'} tomorrow morning.`;
+  if(s.hot.length) return `Send ${first(s.hot[0].name)} the CMA or book the valuation tomorrow. Hot leads cool down fast.`;
+  if(s.calls>=8&&s.miss/s.calls>=.5&&s.evening<s.calls/3) return 'Most of your calls went unanswered and most were during the day. Move your calling block to 17:30 to 19:00 tomorrow.';
+  if(s.twoMiss>=3) return `${s.twoMiss} owners have missed two calls already. Send each of them a short WhatsApp tomorrow instead of a third call.`;
+  if(s.notint>=3) return 'You heard a few no’s today. Tomorrow, open with the free value report line instead of asking about selling.';
+  if(s.calls<s.target) return `Aim for ${s.target} calls tomorrow. Block the time in your diary like an appointment.`;
+  return 'Keep the same rhythm tomorrow, and ask one happy contact for a referral.';
+}
+function reviewPapi(s){const r=rateDay(s).k;return r==='strong'?papiFor('proud'):r==='rest'?papiFor('quiet'):s.notint>=3?papiFor('no'):s.calls&&s.miss/s.calls>=.5?papiFor('miss'):r==='solid'?papiFor('first'):papiFor('dry')}
+function streak(){let n=0;for(let k=0;k<60;k++){const d=addDays(-k);const c=dayStats(d).calls;if(c>=10)n++;else if(k===0)continue;else break}return n}
+function reviewText(s,wins,tom){const p=S.profile;const dd=new Date(s.d+'T12:00:00').toLocaleDateString('en-ZA',{weekday:'long',day:'numeric',month:'long'});
+  return [`Daily review, ${dd}`,`${p.name}`,'',`Calls: ${s.calls} (target ${s.target})`,`Conversations: ${s.talks}`,`New leads: ${s.newLeads.length}${s.hot.length?' ('+s.hot.length+' hot)':''}`,
+   s.followed.length?`Follow ups done: ${s.followed.length}`:null,s.evals?`Evaluations in play: ${s.evals}`:null,s.mandates?`Mandates: ${s.mandates}`:null,'',
+   'What went well:',...wins.map(w=>'• '+w),'','Tomorrow:','• '+tom].filter(x=>x!==null).join('\n')}
+function viewReview(d){
+  d=d||today();const s=dayStats(d);const r=rateDay(s);const wins=reviewWins(s);const tom=reviewTomorrow(s);const papi=S.profile.papiOn===false?null:reviewPapi(s);
+  const st=d===today()?streak():0;const dd=new Date(d+'T12:00:00').toLocaleDateString('en-ZA',{weekday:'long',day:'numeric',month:'long'});
+  const hist=[...Array(7)].map((_,k)=>addDays(-k)).map(x=>({d:x,s:dayStats(x)}));
+  const pipe=[...s.hot,...s.newLeads.filter(c=>c.temp!=='hot')].slice(0,6);
+  return `<div class="topbar pad"><button class="iconbtn" data-act="back" aria-label="Back">${ic('back')}</button><div class="t"><b>Daily review</b><span>${esc(dd)}</span></div></div>
+  <main class="pad">
+    <div class="rv-head"><span class="chip ${r.cls}" style="font-size:13px;padding:5px 12px">${r.l}</span>${st>1?`<span class="chip brass">${st} days in a row with 10+ calls</span>`:''}</div>
+    <div class="rv-nums">
+      <div><b class="mono">${s.calls}</b><span>Calls<br><small>target ${s.target}</small></span></div>
+      <div><b class="mono">${s.talks}</b><span>Conver&shy;sations</span></div>
+      <div><b class="mono">${s.newLeads.length}</b><span>New leads${s.hot.length?`<br><small>${s.hot.length} hot</small>`:''}</span></div>
+      <div><b class="mono">${s.followed.length}</b><span>Follow ups done</span></div>
+    </div>
+    <section class="sec"><div class="sec-h"><h2>What went well</h2></div>
+      <div class="list rv-list">${wins.length?wins.map(w=>`<div class="row"><span class="rv-dot good">${ic('check')}</span><div class="main" style="white-space:normal">${esc(w)}</div></div>`).join(''):'<div class="row"><div class="main">Nothing logged yet today. The review fills in as you work.</div></div>'}</div></section>
+    <section class="sec"><div class="sec-h"><h2>One thing for tomorrow</h2></div>
+      <div class="list rv-list"><div class="row"><span class="rv-dot">${ic('flame')}</span><div class="main" style="white-space:normal">${esc(tom)}</div></div></div></section>
+    ${pipe.length?`<section class="sec"><div class="sec-h"><h2>People you spoke to</h2></div><div class="list">${pipe.map(c=>contactRow(c)).join('')}</div></section>`:''}
+    ${papi?`<div class="papi papi-page" style="margin-top:22px"><span class="papi-k">From your father</span><p>${esc(papi)}</p><span>Papi</span></div>`:''}
+    <section class="sec"><div class="btn-row"><a class="btn gold" href="https://wa.me/${esc(digits(S.profile.papiPhone||'').replace(/^0/,'27'))}?text=${encodeURIComponent(reviewText(s,wins,tom))}" target="_blank" rel="noopener">${ic('wa')}Send to Papi</a>
+      <button class="btn" data-copy="${esc(reviewText(s,wins,tom))}">${ic('copy')}Copy</button></div>
+      <p class="hint">${S.profile.papiPhone?'Opens WhatsApp with your review ready to send to Papi.':'Opens WhatsApp so you can choose Papi. Add his number under Coach settings to skip that step.'}</p></section>
+    <section class="sec"><div class="sec-h"><h2>Last seven days</h2></div><div class="list">${hist.map(h=>{const rr=rateDay(h.s);return `<button class="row" data-review="${h.d}"><div class="main"><div class="name">${esc(nice(h.d))}</div><div class="sub">${h.s.calls} calls · ${h.s.talks} conversations · ${h.s.newLeads.length} new leads</div></div><span class="chip ${rr.cls}">${rr.l}</span></button>`}).join('')}</div></section>
+  </main>`;
+}
+function reviewCard(){
+  const hr=new Date().getHours();const s=dayStats(today());if(hr<16&&!s.calls) return '';
+  const r=rateDay(s);
+  return `<section class="sec"><button type="button" class="tip rv-tip" data-review="${today()}"><span class="tip-k">Your day in review</span><b>${r.l}: ${s.calls} calls, ${s.talks} conversations</b><span class="tip-b">${esc(reviewTomorrow(s))}</span></button></section>`;
+}
+function coachReview(){
+  const hr=new Date().getHours();if(hr<19||seenToday('review')||S.profile.coachOn===false||(S.screen&&S.screen.type==='review')) return false;
+  const s=dayStats(today());if(!s.calls) return false;const r=rateDay(s);
+  coach({key:'review',celebrate:true,papi:r.k==='strong'?'proud':false,title:`Your day: ${r.l.toLowerCase()}`,body:`${s.calls} calls, ${s.talks} conversations, ${s.newLeads.length} new lead${s.newLeads.length===1?'':'s'}. Your daily review is ready.`,
+    actions:[{label:'See my review',run:()=>{S.screen={type:'review',d:today()};render();window.scrollTo(0,0)}}]});return true;
+}
+
 /* ================= boot ================= */
 loadLocal();
 if(!Object.keys(S.contacts).length) loadSample();
 render();
 connectCloud();
+setTimeout(coachOnOpen,1600);
 </script>
 
 <script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))}</script>
