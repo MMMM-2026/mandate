@@ -282,6 +282,24 @@ textarea.input{min-height:92px;resize:vertical}
 .rv-dot svg{width:16px;height:16px}
 .rv-tip::before{background:var(--good)}
 .rv-tip .tip-k{color:var(--good)}
+.listen{gap:6px}
+.listen svg{width:17px;height:17px}
+.listen.speaking{background:var(--brass);border-color:var(--brass);color:var(--brass-ink)}
+.listen.on-dark{background:rgba(242,240,230,.08);border-color:rgba(242,240,230,.22);color:var(--brand-ink)}
+.listen.on-dark.speaking{background:#D6A84B;color:#1A1306;border-color:#D6A84B}
+.band .listen{margin-top:14px}
+.listen.block{width:100%}
+.rem-time{width:auto;min-width:0;max-width:112px;flex:none}
+.cue{align-items:center;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.cue-card{width:100%;max-width:420px;background:var(--brand);color:var(--brand-ink);border-radius:24px;padding:24px 20px;text-align:center;display:grid;justify-items:center;gap:6px;box-shadow:0 20px 60px rgba(0,0,0,.4);animation:rise .25s ease}
+.cue-card .mark{width:44px;height:44px}
+.cue-card h3{margin:8px 0 0;font-family:var(--f-display);font-weight:400;font-size:28px;text-wrap:balance}
+.cue-card p{margin:0;color:var(--brand-muted)}
+.cue-play{margin-top:16px;width:100%;min-height:72px;border-radius:18px;border:0;background:#D6A84B;color:#1A1306;font-size:19px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:10px}
+.cue-play svg{width:26px;height:26px}
+.cue-play.speaking{background:#F2F0E6}
+.cue-card .btn-row{width:100%}
+.cue-card .btn.primary{background:rgba(242,240,230,.1);border-color:rgba(242,240,230,.4);color:var(--brand-ink)}
 @keyframes rise{from{transform:translateY(16px);opacity:0}to{transform:none;opacity:1}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
@@ -484,6 +502,7 @@ const I={
  check:'<path d="m5 12 5 5 9-10"/>',
  wa:'<path d="M4 20l1.3-4A8 8 0 1 1 8 19z"/><path d="M9 9c0 3 3 6 6 6l1-1.5-2-1-1 1c-1-.5-2-1.5-2.5-2.5l1-1-1-2z"/>',
  skip:'<path d="m6 5 8 7-8 7M18 5v14"/>',
+ speak:'<path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/>',
  key:'<circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M17 6l3 3M14 9l2 2"/>'
 };
 const ic=(n,extra='')=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ${extra}>${I[n]||''}</svg>`;
@@ -587,6 +606,7 @@ function viewToday(){
   <header class="band pad">
     <div class="brandrow"><div class="wordmark">${MARK}<span>Mandate</span></div><button type="button" class="coach-pill" data-act="coach">${ic('flame')}Coach</button></div>
     <div class="greet">Dumela, ${esc(first(S.profile.name)||'Agent')}<small>${esc(dateStr)} · ${sub}</small></div>
+    <button type="button" class="btn small listen on-dark" data-speak="${esc(briefing())}">${ic('speak')}<span class="sl">Listen to my day</span></button>
     <div class="kpis">
       <div class="kpi"><b>${calls}</b><span>Calls today</span></div>
       <div class="kpi"><b>${talks}</b><span>Conver&shy;sations</span></div>
@@ -676,7 +696,7 @@ function viewMe(){
     <button class="btn" data-act="import">${ic('up')}Import sheet</button></div>
     <p class="hint">Import reads your complex sheets, call logs and database exports as they are.</p>
     ${lists().length?`<div class="list" style="margin-top:10px">${lists().map(l=>`<div class="row"><div class="main"><div class="name">${esc(l.name)}</div><div class="sub">${l.items.length} owners</div></div><button class="btn small ghost" data-rmlist="${esc(l.name)}">Remove</button></div>`).join('')}</div>`:''}</section>
-  <section class="sec"><div class="sec-h"><h2>Coach</h2></div><div class="btn-row"><button class="btn" data-review="${today()}">Daily review</button><button class="btn" data-act="journey">My 90 days</button><button class="btn" data-act="coach">${ic('flame')}Coach</button></div></section>
+  <section class="sec"><div class="sec-h"><h2>Coach</h2></div><button class="btn block" data-act="coach" style="margin-bottom:8px">${ic('clock')}Daily reminders</button><div class="btn-row"><button class="btn" data-review="${today()}">Daily review</button><button class="btn" data-act="journey">My 90 days</button><button class="btn" data-act="coach">${ic('flame')}Coach</button></div></section>
   <section class="sec"><div class="sec-h"><h2>WhatsApp messages</h2></div><button class="btn block" data-act="editTpl">${ic('wa')}Edit your two messages</button></section>
   <section class="sec"><div class="sec-h"><h2>Where your records live</h2></div>
     <p class="hint" style="margin-top:0">${S.storage==='account'?'Saved privately to your Claude account. Only you can see them, on any device where you open Mandate.':'Saved on this phone only. Export now and then to keep a copy.'} Client details are personal information under POPIA, so share exports only with your office.</p></section>
@@ -750,6 +770,7 @@ function tabbar(){
 }
 function render(){
   const app=$('#app');let h;
+  if(speakBtn&&document.getElementById('app').contains(speakBtn)){try{speechSynthesis.cancel()}catch(e){}speakBtn=null}
   if(S.screen&&S.screen.type==='dial') h=viewDial(S.screen.list);
   else if(S.screen&&S.screen.type==='contact') h=viewContact(S.screen.id);
   else if(S.screen&&S.screen.type==='coach') h=viewCoach();
@@ -938,9 +959,10 @@ async function copyText(t,msg){try{await navigator.clipboard.writeText(t);toast(
 
 /* ================= events ================= */
 document.addEventListener('click',e=>{
-  const el=e.target.closest('[data-tab],[data-act],[data-open],[data-dial],[data-review],[data-out],[data-lf],[data-copy],[data-rmlist],[data-wa],[data-scrim]');if(!el)return;
+  const el=e.target.closest('[data-speak],[data-tab],[data-act],[data-open],[data-dial],[data-review],[data-out],[data-lf],[data-copy],[data-rmlist],[data-wa],[data-scrim]');if(!el)return;
   if(el.hasAttribute('data-scrim')){if(e.target===el)closeSheet();return}
   const d=el.dataset;const cur=S.screen&&S.screen.type==='contact'?S.contacts[S.screen.id]:(S.screen&&S.screen.type==='dial'?queueFor(S.screen.list)[0]:null);
+  if(d.speak!==undefined){speak(d.speak,el);return}
   if(d.review){S.screen={type:'review',d:d.review};render();window.scrollTo(0,0);return}
   if(d.tab){S.tab=d.tab;S.screen=null;render();window.scrollTo(0,0);return}
   if(d.open){S.prev=S.screen;S.screen={type:'contact',id:d.open};render();window.scrollTo(0,0);return}
@@ -959,6 +981,7 @@ document.addEventListener('click',e=>{
     case 'undo': undo();break;
     case 'skip': S.skipped.add(d.id);render();break;
     case 'quick': quickSheet();break;
+    case 'ics': saveICS();break;
     case 'coach': S.screen={type:'coach'};render();window.scrollTo(0,0);break;
     case 'journey': S.screen={type:'journey'};render();window.scrollTo(0,0);break;
     case 'startJourney':{const v=$('#jStart').value||today();S.profile.journey={start:v,done:{}};persistProfile();render();window.scrollTo(0,0);
@@ -1056,9 +1079,9 @@ function coach(m){
     ${m.extra||''}
     ${papi?`<div class="papi"><p>${esc(papi)}</p><span>Papi</span></div>`:''}
     ${v?`<p class="coach-verse">“${esc(v[1])}”<span>${esc(v[0])}</span></p>`:''}
-    <div class="coach-actions">${(m.actions||[]).map((a,i)=>`<button type="button" class="btn small ${i===0?'gold':''}" data-ca="${i}">${esc(a.label)}</button>`).join('')}<button type="button" class="btn small ghost" data-ca="x">${m.actions&&m.actions.length?'Not now':'Thank you'}</button></div></div>`;
+    <div class="coach-actions">${listenBtn([m.title,m.body,m.script||'',papi?'From Papi. '+papi:''].join('. '),'on-dark')}${(m.actions||[]).map((a,i)=>`<button type="button" class="btn small ${i===0?'gold':''}" data-ca="${i}">${esc(a.label)}</button>`).join('')}<button type="button" class="btn small ghost" data-ca="x">${m.actions&&m.actions.length?'Not now':'Thank you'}</button></div></div>`;
   document.body.appendChild(el);coachOpen=true;
-  const close=()=>{el.remove();coachOpen=false};
+  const close=()=>{try{if(speakBtn&&el.contains(speakBtn)){speechSynthesis.cancel();speakBtn=null}}catch(e){}el.remove();coachOpen=false};
   el.addEventListener('click',e=>{const b=e.target.closest('[data-ca],.coach-x');if(!b)return;
     if(b.classList.contains('coach-x')||b.dataset.ca==='x'){close();return}
     const a=m.actions[+b.dataset.ca];if(a&&a.run){if(a.run(el)!==false)close()}});
@@ -1136,11 +1159,12 @@ function tipOfDay(){const i=Math.floor(Date.now()/864e5)%PLAYBOOK.length;return 
 function viewCoach(){
   return `<div class="topbar pad"><button class="iconbtn" data-act="back" aria-label="Back">${ic('back')}</button><div class="t"><b>Coach</b><span>Scripts and habits that win mandates</span></div></div>
   <main class="pad">
-    ${S.profile.papiOn===false?'':`<div class="papi papi-page"><span class="papi-k">A word from your father</span><p>${esc(PAPI_MAIN)}</p><span>Papi</span></div>`}
+    ${S.profile.papiOn===false?'':`<div class="papi papi-page"><span class="papi-k">A word from your father</span><p>${esc(PAPI_MAIN)}</p><span>Papi</span><div style="margin-top:10px">${listenBtn(PAPI_MAIN,'on-dark')}</div></div>`}
     <button class="btn block" data-act="journey" style="margin-bottom:6px">${ic('flame')}My 90 day plan</button>
     <p class="hint">Tap a topic to open it. Scripts fill in your name and agency. Read them aloud a few times until they sound like you, then make them your own.</p>
     <div class="list">${PLAYBOOK.map(p=>`<details class="play"><summary>${esc(p.t)}</summary><div class="play-b"><p>${esc(p.body)}</p>
-      ${p.script?`<div class="coach-script">${esc(fillScript(p.script,null))}</div><button class="btn small" data-copy="${esc(fillScript(p.script,null))}">${ic('copy')}Copy</button>`:''}</div></details>`).join('')}</div>
+      ${p.script?`<div class="coach-script">${esc(fillScript(p.script,null))}</div><div class="btn-row" style="flex:0 0 auto">${listenBtn(fillScript(p.script,null))}<button class="btn small" data-copy="${esc(fillScript(p.script,null))}">${ic('copy')}Copy</button></div>`:''}</div></details>`).join('')}</div>
+    ${remindersBlock()}
     <section class="sec"><div class="sec-h"><h2>Coach settings</h2></div><div class="list">
       <label class="row"><div class="main"><div class="name">Coaching pop ups</div><div class="sub">Short encouragement and guidance as you work</div></div><input type="checkbox" id="coachOn" ${S.profile.coachOn===false?'':'checked'}></label>
       <label class="row"><div class="main"><div class="name">Words from Papi</div><div class="sub">Your father’s encouragement on hard days and big wins</div></div><input type="checkbox" id="papiOn" ${S.profile.papiOn===false?'':'checked'}></label>
@@ -1313,6 +1337,7 @@ function viewReview(d){
       <div class="list rv-list"><div class="row"><span class="rv-dot">${ic('flame')}</span><div class="main" style="white-space:normal">${esc(tom)}</div></div></div></section>
     ${pipe.length?`<section class="sec"><div class="sec-h"><h2>People you spoke to</h2></div><div class="list">${pipe.map(c=>contactRow(c)).join('')}</div></section>`:''}
     ${papi?`<div class="papi papi-page" style="margin-top:22px"><span class="papi-k">From your father</span><p>${esc(papi)}</p><span>Papi</span></div>`:''}
+    <section class="sec">${listenBtn(reviewSpeech(s,wins,tom,papi),'block')}</section>
     <section class="sec"><div class="btn-row"><a class="btn gold" href="https://wa.me/${esc(digits(S.profile.papiPhone||'').replace(/^0/,'27'))}?text=${encodeURIComponent(reviewText(s,wins,tom))}" target="_blank" rel="noopener">${ic('wa')}Send to Papi</a>
       <button class="btn" data-copy="${esc(reviewText(s,wins,tom))}">${ic('copy')}Copy</button></div>
       <p class="hint">${S.profile.papiPhone?'Opens WhatsApp with your review ready to send to Papi.':'Opens WhatsApp so you can choose Papi. Add his number under Coach settings to skip that step.'}</p></section>
@@ -1331,12 +1356,94 @@ function coachReview(){
     actions:[{label:'See my review',run:()=>{S.screen={type:'review',d:today()};render();window.scrollTo(0,0)}}]});return true;
 }
 
+/* ================= read aloud ================= */
+function pickVoice(){try{const vs=speechSynthesis.getVoices();return vs.find(v=>/en[-_]ZA/i.test(v.lang))||vs.find(v=>/en[-_]GB/i.test(v.lang))||vs.find(v=>/^en/i.test(v.lang))||null}catch(e){return null}}
+try{if('speechSynthesis' in window)speechSynthesis.onvoiceschanged=()=>{}}catch(e){}
+function setSpeakUI(on){document.querySelectorAll('[data-speak]').forEach(b=>{b.classList.toggle('speaking',on&&b===speakBtn);const l=b.querySelector('.sl');if(l){if(!l.dataset.label)l.dataset.label=l.textContent;l.textContent=on&&b===speakBtn?'Stop':l.dataset.label}})}
+let speakBtn=null;
+function speak(text,btn){
+  if(!('speechSynthesis' in window)){toast('Read aloud is not available on this phone');return}
+  const ss=speechSynthesis;
+  if(ss.speaking||ss.pending){const same=btn===speakBtn;ss.cancel();speakBtn=null;setSpeakUI(false);if(same)return}
+  const u=new SpeechSynthesisUtterance(String(text).replace(/\s+/g,' ').replace(/\bCMAs?\b/gi,m=>m.length>3?'C M As':'C M A').replace(/\bPPRA\b/g,'P P R A').replace(/\bPOPIA\b/g,'Popia'));const v=pickVoice();if(v){u.voice=v;u.lang=v.lang}else u.lang='en-ZA';
+  u.rate=.96;u.pitch=1;u.onend=u.onerror=()=>{speakBtn=null;setSpeakUI(false)};speakBtn=btn;setSpeakUI(true);ss.speak(u);
+}
+const listenBtn=(text,cls)=>`<button type="button" class="btn small listen ${cls||''}" data-speak="${esc(text)}">${ic('speak')}<span class="sl">Listen</span></button>`;
+function briefing(){
+  const cs=all();const t=today();const due=cs.filter(isDue);const follow=due.filter(c=>c.status==='reached').sort((a,b)=>(a.temp==='hot'?0:1)-(b.temp==='hot'?0:1));
+  const retry=due.filter(c=>c.status==='retry');const hot=cs.filter(c=>isLead(c)&&c.temp==='hot');const hr=new Date().getHours();
+  const parts=[`${hr<12?'Good morning':hr<17?'Good afternoon':'Good evening'}, ${first(S.profile.name)}.`];
+  if(follow.length){parts.push(`You have ${follow.length} follow up${follow.length>1?'s':''} due.`);
+    parts.push('Start with '+follow.slice(0,3).map(c=>`${first(c.name)}, ${(NEXT[c.nextAction]||'follow up').toLowerCase()}`).join('. Then ')+'.')}
+  else parts.push('No follow ups are due today.');
+  if(retry.length){const by={};retry.forEach(c=>by[c.list]=(by[c.list]||0)+1);parts.push(`${retry.length} owner${retry.length>1?'s':''} to call again: `+Object.entries(by).map(([n,k])=>`${k} in ${n}`).join(', ')+'. Evenings from half past five work best.')}
+  if(hot.length) parts.push(`You have ${hot.length} hot lead${hot.length>1?'s':''}: ${hot.slice(0,4).map(c=>first(c.name)).join(', ')}.`);
+  const j=journey();if(j){const w=jWeek();const st=weekStats(w);parts.push(`This is week ${w} of your ninety days. ${WEEKS[w-1].f}. You are on ${st.calls} of ${WEEKS[w-1].calls} calls.`)}
+  if(S.profile.papiOn!==false) parts.push('And from Papi. '+papiFor(new Date().getDay()===1?'monday':'first'));
+  return parts.join(' ');
+}
+function reviewSpeech(s,wins,tom,papi){return [`Here is your day, ${first(S.profile.name)}. ${rateDay(s).l}.`,`You made ${s.calls} call${s.calls===1?'':'s'} and had ${s.talks} conversation${s.talks===1?'':'s'}, with ${s.newLeads.length} new lead${s.newLeads.length===1?'':'s'}.`,
+  wins.length?'What went well. '+wins.join(' '):'','For tomorrow. '+tom,papi?'A word from Papi. '+papi:''].filter(Boolean).join(' ')}
+
+/* ================= daily reminders ================= */
+const APP_URL=/github\.io|netlify|^https?:\/\/(?!claude)/.test(location.href)&&location.protocol.startsWith('http')?location.origin+location.pathname:'https://mmmm-2026.github.io/mandate/';
+const REMINDERS=[
+ {k:'brief',def:'07:30',title:'Mandate: listen to your day',desc:'Your follow ups, hot leads and a word from Papi.',days:'MO,TU,WE,TH,FR,SA'},
+ {k:'calls',def:'17:30',title:'Mandate: golden hour',desc:'Owners are home now. Time to call.',days:'MO,TU,WE,TH,FR'},
+ {k:'review',def:'19:00',title:'Mandate: daily review',desc:'Hear your day, then send it to Papi.',days:'MO,TU,WE,TH,FR'}
+];
+function remTime(k){const r=S.profile.remind||{};return r[k]||REMINDERS.find(x=>x.k===k).def}
+function utcStamp(dateIso,hhmm){const [h,m]=hhmm.split(':').map(Number);const d=new Date(Date.UTC(+dateIso.slice(0,4),+dateIso.slice(5,7)-1,+dateIso.slice(8,10),h-2,m,0));
+  return d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'')}
+function nextStart(){const d=new Date();d.setDate(d.getDate()+1);return iso(d)}
+function buildICS(){const st=nextStart();const now=utcStamp(today(),'12:00');
+  const ev=REMINDERS.map(r=>{const t=remTime(r.k);const s1=utcStamp(st,t);const [h,m]=t.split(':').map(Number);const e1=utcStamp(st,`${String(h).padStart(2,'0')}:${String(m+10).padStart(2,'0')}`.replace(/:(\d\d)$/,(x,mm)=>+mm>=60?':59':x));
+    return ['BEGIN:VEVENT',`UID:mandate-${r.k}-${Date.now()}@mandate`,`DTSTAMP:${now}`,`DTSTART:${s1}`,`DTEND:${e1}`,`RRULE:FREQ=WEEKLY;BYDAY=${r.days}`,`SUMMARY:${r.title}`,
+      `DESCRIPTION:${r.desc} Open: ${APP_URL}#${r.k}`,`URL:${APP_URL}#${r.k}`,'BEGIN:VALARM','ACTION:DISPLAY',`DESCRIPTION:${r.title}`,'TRIGGER:PT0M','END:VALARM','END:VEVENT'].join('\r\n')}).join('\r\n');
+  return ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Mandate//Daily reminders//EN','CALSCALE:GREGORIAN',ev,'END:VCALENDAR'].join('\r\n')}
+function gcalLink(r){const st=nextStart();const t=remTime(r.k);const s1=utcStamp(st,t);const [h,m]=t.split(':').map(Number);const end=new Date(Date.UTC(2000,0,1,h,m+10));
+  const e1=utcStamp(st,`${String(end.getUTCHours()).padStart(2,'0')}:${String(end.getUTCMinutes()).padStart(2,'0')}`);
+  return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(r.title)+'&dates='+s1+'/'+e1+'&details='+encodeURIComponent(r.desc+' Open: '+APP_URL+'#'+r.k)+'&recur='+encodeURIComponent('RRULE:FREQ=WEEKLY;BYDAY='+r.days)+'&ctz=Africa/Johannesburg'}
+async function saveICS(){const data=buildICS();const file='Mandate reminders.ics';let ok=false;
+  try{const dl=window.claude&&window.claude.use?await claude.use('downloads'):null;if(dl){await dl.save({filename:file,data});ok=true}}catch(e){if(e&&e.code==='declined')return}
+  if(!ok){try{const blob=new Blob([data],{type:'text/calendar'});const u=URL.createObjectURL(blob);const a=document.createElement('a');a.href=u;a.download=file;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),4000);ok=true}catch(e){}}
+  toast(ok?'Open the file to add the reminders to your calendar':'Could not save the file here')}
+function remindersBlock(){return `<section class="sec"><div class="sec-h"><h2>Daily reminders</h2></div><div class="list">
+  ${REMINDERS.map(r=>`<div class="row"><div class="main"><label class="name" for="rem-${r.k}">${esc(r.title.replace('Mandate: ',''))}</label><div class="sub">${esc(r.desc)}</div></div><input class="input mono rem-time" type="time" id="rem-${r.k}" value="${remTime(r.k)}"></div>`).join('')}
+  </div>
+  <p class="hint">Set the times once, then add them to your phone’s calendar. Your phone will remind you every weekday, and tapping the reminder opens Mandate ready to speak.</p>
+  <div class="btn-row" style="margin-top:8px"><button class="btn gold" data-act="ics">${ic('clock')}iPhone calendar</button></div>
+  <div class="btn-row" style="margin-top:8px">${REMINDERS.map(r=>`<a class="btn small" href="${esc(gcalLink(r))}" target="_blank" rel="noopener">Google: ${esc(r.title.replace('Mandate: ','').replace(/^listen to /,''))}</a>`).join('')}</div>
+  <p class="hint">On Android, tap each Google button once and press Save. On iPhone, use the gold button and choose Add All.</p></section>`}
+document.addEventListener('change',e=>{if(e.target.classList&&e.target.classList.contains('rem-time')){S.profile.remind=S.profile.remind||{};S.profile.remind[e.target.id.slice(4)]=e.target.value;persistProfile();toast('Time saved. Add it to your calendar again to update it.');setTimeout(render,300)}});
+/* opened from a reminder */
+function cueText(k){const s=dayStats(today());
+  if(k==='brief') return {title:`Good ${new Date().getHours()<12?'morning':'day'}, ${first(S.profile.name)}`,body:'Your day is ready. Put the phone on speaker and listen.',text:briefing()};
+  if(k==='calls'){const L=lists().map(l=>({n:l.name,w:l.items.filter(c=>c.status==='new'||(c.status==='retry'&&c.due<=today())).length})).sort((a,b)=>b.w-a.w);const top=L[0];
+    const papi=S.profile.papiOn===false?'':' From Papi. '+papiFor('miss');
+    return {title:'Golden hour',body:top&&top.w?`${top.w} owners are waiting in ${top.n}.`:'Owners are home now.',list:top&&top.w?top.n:null,
+      text:`It is golden hour, ${first(S.profile.name)}. Owners are home from work and they answer now. ${top&&top.w?`You have ${top.w} owners waiting in ${top.n}. `:''}${s.calls?`You have made ${s.calls} calls today. `:''}Open with value. Tell them what units in their complex are worth, and offer a free report.${papi}`}}
+  const wins=reviewWins(s),tom=reviewTomorrow(s),papi=S.profile.papiOn===false?null:reviewPapi(s);
+  return {title:'Your daily review',body:`${s.calls} calls and ${s.talks} conversations today.`,text:reviewSpeech(s,wins,tom,papi),review:true};
+}
+function showCue(k){const c=cueText(k);const el=document.createElement('div');el.className='scrim cue';
+  el.innerHTML=`<div class="cue-card">${MARK}<h3>${esc(c.title)}</h3><p>${esc(c.body)}</p>
+    <button type="button" class="cue-play listen" data-speak="${esc(c.text)}">${ic('speak')}<span class="sl">Tap to listen</span></button>
+    <div class="btn-row" style="margin-top:14px">${c.list?`<button class="btn primary" data-cue-go="dial">Start calling</button>`:''}${c.review?`<button class="btn primary" data-cue-go="review">See my review</button>`:''}<button class="btn" data-cue-go="close">Close</button></div></div>`;
+  document.body.appendChild(el);
+  el.addEventListener('click',e=>{const b=e.target.closest('[data-cue-go]');if(!b)return;try{speechSynthesis.cancel()}catch(x){}speakBtn=null;el.remove();
+    if(b.dataset.cueGo==='dial'){S.screen={type:'dial',list:c.list};S.skipped=new Set();render()}
+    if(b.dataset.cueGo==='review'){S.screen={type:'review',d:today()};render()}});
+}
+function handleHash(){const h=(location.hash||'').slice(1);if(['brief','calls','review'].includes(h)){try{history.replaceState(null,'',location.pathname)}catch(e){}coachOpen=true;setTimeout(()=>{coachOpen=false},4000);showCue(h);return true}return false}
+window.addEventListener('hashchange',handleHash);
+
 /* ================= boot ================= */
 loadLocal();
 if(!Object.keys(S.contacts).length) loadSample();
 render();
 connectCloud();
-setTimeout(coachOnOpen,1600);
+if(!handleHash()) setTimeout(coachOnOpen,1600);
 </script>
 
 <script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))}</script>
